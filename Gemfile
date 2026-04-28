@@ -3,13 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.10'
 
+gem 'bcrypt',          '3.1.18'
 gem 'bootsnap',        '1.16.0', require: false
+gem 'bootstrap-sass',  '3.4.1'
 gem 'concurrent-ruby', '1.3.4'
 gem 'importmap-rails', '1.1.5'
 gem 'jbuilder',        '2.14.1'
 gem 'puma',            '6.6.1'
 gem 'rails',           '8.0.2.1'
-gem "bootstrap-sass",  '3.4.1'
 gem 'sassc-rails',     '2.1.2'
 gem 'sprockets-rails', '3.4.2'
 gem 'sqlite3',         '2.7.3'
