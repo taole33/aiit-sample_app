@@ -54,4 +54,19 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
+<<<<<<< Updated upstream
+=======
+
+  # 現在のユーザーをログアウトする
+  def log_out
+    forget(current_user)
+    reset_session
+    @current_user = nil
+  end
+
+  # アクセスしようとしたURLを保存する
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+>>>>>>> Stashed changes
 end

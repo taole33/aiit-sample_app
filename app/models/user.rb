@@ -24,6 +24,16 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+<<<<<<< Updated upstream
+=======
+  # 永続化セッションのためにユーザーをデータベースに記憶する
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+    remember_digest
+  end
+
+>>>>>>> Stashed changes
   # セッションハイジャック防止のためにセッショントークンを返す
   # この記憶ダイジェストを再利用しているのは単に利便性のため
   def session_token

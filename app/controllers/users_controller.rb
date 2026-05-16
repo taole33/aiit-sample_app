@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
+<<<<<<< Updated upstream
   before_action :logged_in_user, only: %i[edit update]
   before_action :correct_user, only: %i[edit update]
+=======
+  before_action :logged_in_user, only: %i[index edit update destroy]
+  before_action :correct_user, only: %i[edit update]
+  before_action :admin_user, only: :destroy
+
+  def index
+    @users = User.paginate(page: params[:page])
+  end
+>>>>>>> Stashed changes
 
   def show
     @user = User.find(params[:id])
@@ -36,6 +46,15 @@ class UsersController < ApplicationController
     end
   end
 
+<<<<<<< Updated upstream
+=======
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = 'User deleted'
+    redirect_to users_url, status: :see_other
+  end
+
+>>>>>>> Stashed changes
   private
 
   def user_params
@@ -59,4 +78,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to(root_url, status: :see_other) unless current_user?(@user)
   end
+<<<<<<< Updated upstream
+=======
+
+  # 管理者かどうか確認
+  def admin_user
+    redirect_to(root_url, status: :see_other) unless current_user.admin?
+  end
+>>>>>>> Stashed changes
 end
